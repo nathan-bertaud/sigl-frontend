@@ -1,0 +1,147 @@
+<!-- contrat-apprentissage-form.component.html -->
+<h2>Formulaire de Contrat d'Apprentissage</h2>
+
+<form [formGroup]="formEmployeur" (ngSubmit)="onSubmit()" >
+    <div class="conteneur-employeur">
+        <div class="conteneur-contrat">
+            <div class="label-employeur">
+                <label for="typeEmployeur">L'EMPLOYEUR</label>
+            </div>
+        </div>
+        <div class="conteneur-informations">
+            <div class="informations-gauche">
+                <div class="form-group">
+                    <mat-radio-group formControlName="domaineEmployeur">
+                        <mat-radio-button value="employeurPrive">Employeur privé</mat-radio-button>
+                        <mat-radio-button value="employeurPublic">Employeur public</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="form-group">
+                    <label for="nomEntreprise">Nom et Prénom ou Dénomination</label>
+                    <input type="text" id="nomEntreprise" formControlName="nomEntreprise" required>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse de l'établissement</label>
+                    <input type="text" id="adresse" formControlName="adresse" required>
+                </div>
+                <div class="form-group">
+                    <label for="codePostal">Code Postal</label>
+                    <input type="text" id="codePostal" formControlName="codePostal" required>
+                </div>
+                <div class="form-group">
+                    <label for="commune">Commune</label>
+                    <input type="text" id="commune" formControlName="commune" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" formControlName="telephone" required>
+                </div>
+                <div class="form-group">
+                    <label for="courrier">Email</label>
+                    <input type="email" id="courrier" formControlName="email" required>
+                </div>
+            </div>
+            <div class="informations-droite">
+                <div class="form-group">
+                    <label for="siret">N° Siret</label>
+                    <input type="text" id="siret" formControlName="siret" required>
+                </div>
+                <div class="form-group">
+                    <label for="typeEmployeur">Type d'Employeur</label>
+                    <input type="text" id="siret" formControlName="typeEmployeur" required>
+                </div>
+                <div class="form-group">
+                    <label for="employeurSpecifique">Employeur Spécifique</label>
+                    <input type="text" id="employeurSpecifique" formControlName="employeurSpecifique" required>
+                </div>
+                <div class="form-group">
+                    <label for="codeActivite">Code Activité de l'Entreprise (NAF)</label>
+                    <input type="text" id="codeActivite" formControlName="codeNAF" required>
+                </div>
+                <div class="form-group">
+                    <label for="effectifTotal">Effectif Total Salarié de l'Entreprise</label>
+                    <input type="number" id="effectifTotal" formControlName="effectifSalarie" required>
+                </div>
+                <div class="form-group">
+                    <label for="conventionCollective">Convention Collective</label>
+                    <input type="text" id="conventionCollective" formControlName="conventionCollective" required>
+                </div>
+                <div class="form-group">
+                    <label for="codeIDCC">Code IDCC de la Convention</label>
+                    <input type="text" id="codeIDCC" formControlName="codeIDCC" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteneur-formation">
+        <div class="conteneur-contrat">
+            <label for="typeEmployeur">LA FORMATION</label>
+        </div>
+        <div class="conteneur-informations">
+            <div class="informations-gauche">
+
+                <div class="checkbox-cfa">
+                    <label for="nomEntreprise">CFA d'entreprise:</label>
+                    <mat-radio-group>
+                        <mat-radio-button value="oui">oui</mat-radio-button>
+                        <mat-radio-button value="non">non</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="form-contrat">
+                    <label for="adresse">Dénomination du CFA responsable :</label>
+                    <div>
+                        <p>CHAMBRE COMMERCE INDUSTRIE MAINE LOIRE</p>
+                    </div>
+                </div>
+                <div class="form-contrat-2">
+                    <label for="codePostal"> N°UAI du CFA : </label>
+                    <p class="info-droite">0490985E</p>
+                </div>
+                <div class="form-contrat-2">
+                    <label for="commune"> N°SIRET du CFA : </label>
+                    <p>13000460900017</p>
+                </div>
+                <div class="form-contrat">
+                    <label for="telephone">Adresse du CFA repsonsable :</label>
+                    <div>
+                        <p>N°8 Voie BD DU ROI RENE</p>
+                        <p>Complément : CS 60626</p>
+                        <p>Code Postal : 49006</p>
+                        <p>Commune : ANGERS CEDEX 01</p>
+                    </div>
+                </div>
+            </div>
+            <div class="informations-droite">
+                <div class="form-contrat">
+                    <label for="siret">Diplôme ou titre visé par l'apprenti</label>
+                    <div>
+                        <p>74 - Diplôme d'ingénieur, diplôme d'école de commerce</p>
+                    </div>
+                </div>
+                <div class="form-contrat-2">
+                    <label for="typeEmployeur">Intitulé précis : </label>
+                    <p>Ingénieur ESEO</p>
+                </div>
+                <div class="form-contrat-2">
+                    <label for="employeurSpecifique">Code du diplôme : </label>
+                    <p>17025512</p>
+                </div>
+                <div class="form-contrat-2">
+                    <label for="codeActivite">Code RNCP : </label>
+                    <p>RNCP4345</p>
+                </div>
+                <div class="form-contrat">
+                    <label for="effectifTotal">Organisation de la formation en CFA : </label>
+                    <div>
+                        <p>Date de début du cycle de formation : 06/09/2024</p>
+                        <p>Date de fin du cycle de formation : 05/09/2027</p>
+                        <p>Durée de la formation : 1680 heures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bouton-soumission">
+        <button class="modern-login-button" type="submit">Soumettre</button>
+    </div>
+</form>

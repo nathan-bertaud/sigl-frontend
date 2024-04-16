@@ -1,0 +1,23 @@
+<ng-container *ngIf="loading">
+    <div class="center">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-container>
+  <div *ngIf="!loading">
+    <div>
+      <h2>Liste de vos apprentis</h2>
+      <mat-form-field class="form">
+        <mat-label>Selectionner un apprenti</mat-label>
+        <mat-select *ngIf="apprenticeList" [(value)]="selectedApprentice">
+          <mat-option
+            *ngFor="let apprentice of apprenticeList"
+            [value]="apprentice"
+          >
+            {{ apprentice?.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button class="form" color="primary" (click)="naviguerVersGrille()">Voir la grille d'évaluation</button>
+      </div>

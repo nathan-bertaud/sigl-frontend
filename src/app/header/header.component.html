@@ -1,0 +1,32 @@
+<div class="container">
+  <img class="name" src="assets/images/logo.png" />
+
+  <div
+    class="right-container"
+    *ngIf="firstName !== '' || lastName !== '' || function !== ''"
+  >
+    <a [routerLink]="['notification']">
+      <mat-icon
+        class="notif"
+        aria-hidden="false"
+        aria-label="Notification icon"
+        fontIcon="notifications"
+      ></mat-icon>
+      <div *ngIf="notificationNumber > 0" class="notif-count">
+        {{ notificationNumber }}
+      </div>
+    </a>
+    <div [routerLink]="['profile']" class="info-container">
+      <span class="full-name">{{ firstName }} {{ lastName }}</span
+      ><span class="function">{{ function }}</span>
+    </div>
+    <div class="logout-container">
+      <mat-icon
+        class="signout"
+        aria-label="logout icon"
+        fontIcon="logout"
+      ></mat-icon>
+      <span (click)="signout()" class="signout">Déconnexion</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<!-- Creation Evenement en tant que COORDINATOR -->
+<div class="new-event-container">
+    <h2>Nouvel Evenement</h2>
+  
+    <form [formGroup]="newEventForm" (ngSubmit)="submitEvent()">
+      <div class="form-group">
+        <label for="title">Titre:</label>
+        <input type="text" id="title" formControlName="title" required />
+
+        <label for="startDate">Date début:</label>
+        <input type="datetime-local" id="startDate" formControlName="startDate" required />
+  
+        <label for="endDate">Date fin:</label>
+        <input type="datetime-local" id="endDate" formControlName="endDate" required />
+  
+        <label for="semestre">Semestre:</label>
+        <select id="semestre" formControlName="semestre">
+          <option value="S5">S5</option>
+          <option value="S6">S6</option>
+          <option value="S7">S7</option>
+          <option value="S8">S8</option>
+          <option value="S9">S9</option>
+          <option value="S10">S10</option>
+        </select>
+  
+        <button class="modern-login-button" type="submit">Valider</button>
+      </div>
+    </form>
+  </div>

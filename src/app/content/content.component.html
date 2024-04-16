@@ -1,0 +1,195 @@
+<div class="container">
+  <div class="slider">
+    <div class="menu" [class]="collapsed ? 'collapsed' : 'uncollapsed'">
+      <a [routerLink]="['home']" routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Home icon"
+          fontIcon="home"
+        ></mat-icon
+        >{{ collapsed ? "" : "Accueil" }}</a
+      >
+      <a
+        [routerLink]="['liste-promotions']"
+        *ngIf="hasRole('ROLE_COORDINATOR')"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Note icon"
+          fontIcon="edit_note"
+        ></mat-icon
+        >{{ collapsed ? "" : "Liste promotions" }}</a
+      >
+      <a
+        *ngIf="hasRole('ROLE_ADMIN')"
+        [routerLink]="['createUser']"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="supervisor_account icon"
+          fontIcon="supervisor_account"
+        ></mat-icon
+        >{{ collapsed ? "" : "Créer utilisateur" }}
+      </a>
+      <a
+        [routerLink]="['mensual-note']"
+        *ngIf="hasRole('ROLE_APPRENTI')"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Note icon"
+          fontIcon="edit_note"
+        ></mat-icon
+        >{{ collapsed ? "" : "Note" }}</a
+      >
+      <a
+        [routerLink]="['apprentice-info']"
+        *ngIf="hasRole('ROLE_MENTOR')"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="School icon"
+          fontIcon="school"
+        ></mat-icon
+        >{{ collapsed ? "" : "Alternant(s)" }}</a
+      >
+      <a
+        [routerLink]="['company-account']"
+        *ngIf="hasRole('ROLE_ADMIN')"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="card_travel icon"
+          fontIcon="card_travel"
+        ></mat-icon
+        >{{ collapsed ? "" : "Créer entreprise" }}</a
+      >
+      <a
+        *ngIf="hasRole('ROLE_ADMIN')"
+        [routerLink]="['user-list']"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="list_alt icon"
+          fontIcon="list_alt"
+        ></mat-icon
+        >{{ collapsed ? "" : "Utilisateurs" }}</a
+      >
+      <a
+        [routerLink]="['biannual-meeting']"
+        routerLinkActive="active"
+        *ngIf="hasRole('ROLE_APPRENTI')"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Calendar icon"
+          fontIcon="calendar_today"
+        ></mat-icon
+        >{{ collapsed ? "" : "Entretien" }}</a
+      >
+      <a [routerLink]="['add-document']" routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Document icon"
+          fontIcon="cloud_upload"
+        ></mat-icon
+        >{{ collapsed ? "" : "Importer" }}</a
+      >
+      <a [routerLink]="['get-document']" routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Document icon"
+          fontIcon="cloud_download"
+        ></mat-icon
+        >{{ collapsed ? "" : "Mes documents" }}</a
+      >
+      <a
+        [routerLink]="['key-date']"
+        routerLinkActive="active"
+        *ngIf="hasRole('ROLE_COORDINATOR')"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Calendar icon"
+          fontIcon="calendar_today"
+        ></mat-icon
+        >{{ collapsed ? "" : "Dates Clés" }}</a
+      >
+      <a
+        [routerLink]="['event']"
+        routerLinkActive="active"
+        *ngIf="hasRole('ROLE_ADMIN')"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Calendar icon"
+          fontIcon="calendar_today"
+        ></mat-icon
+        >{{ collapsed ? "" : "Evènements" }}</a
+      >
+
+      <a
+        [routerLink]="['jury']"
+        routerLinkActive="active"
+        *ngIf="hasRole('ROLE_COORDINATOR')"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="group icon"
+          fontIcon="group"
+        ></mat-icon
+        >{{ collapsed ? "" : "Jury" }}</a
+      >
+      <a
+        [routerLink]="['vivas']"
+        routerLinkActive="active"
+        *ngIf="hasRole('ROLE_COORDINATOR')"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Calendar icon"
+          fontIcon="calendar_today"
+        ></mat-icon
+        >{{ collapsed ? "" : "Soutenance" }}</a
+      >
+      <a
+        [routerLink]="['certificat-cerfa']"
+        *ngIf="hasRole('ROLE_HR')"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Admin icon"
+          fontIcon="admin_panel_settings"
+        ></mat-icon
+        >{{ collapsed ? "" : "Contrat d'apprentissage" }}</a
+      >
+      <a
+        [routerLink]="['evaluation']"
+        *ngIf="hasRole('ROLE_TUTOR')"
+        routerLinkActive="active"
+        ><mat-icon>assessment</mat-icon>{{ collapsed ? "" : "Evaluations" }}</a
+      >
+      <a
+        [routerLink]="['grille-evaluation/:id']"
+        *ngIf="hasRole('ROLE_APPRENTI')"
+        routerLinkActive="active"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Admin icon"
+          fontIcon="admin_panel_settings"
+        ></mat-icon
+        >{{ collapsed ? "" : "Evaluations" }}</a
+      >
+    </div>
+    <div class="footer">
+      <button (click)="collapse()">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Arrow icon"
+          [fontIcon]="
+            collapsed ? 'keyboard_arrow_right' : 'keyboard_arrow_left'
+          "
+        ></mat-icon
+        >{{ collapsed ? "" : "Réduire" }}
+      </button>
+    </div>
+  </div>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="change-password-container">
+    <h2>Creation d'un nouveau livrable</h2>
+
+    <form [formGroup]="formLivrable" (ngSubmit)="creationLivrable()">
+        <div class="form-group">
+            <label>Nom du nouveau Livrable</label>
+            <input formControlName="livrableName" id="livrableName" placeholder="Nom du livrable" required>
+            <label>Type du livrable</label>
+            <mat-select class="mat-select" formControlName="livrableType" placeholder="Sélectionnez le type du livrable"
+                (selectionChange)="onTypeSelectionChange($event)">
+                <mat-option *ngFor="let type of livrableTypes" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+        </div>
+        <button class="modern-login-button" type="submit">Valider</button>
+    </form>
+</div>

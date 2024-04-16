@@ -1,0 +1,86 @@
+/* evaluation.component.css */
+
+/* Style général du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style de l'en-tête du tableau */
+  th {
+    background-color:rgba(76, 98, 255, 1);
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    color: #f5f5f5;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Style des cellules du tableau */
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* Style des cases à cocher */
+  td input[type="checkbox"] {
+    margin: 0;
+  }
+  
+  /* Style de la zone de texte */
+  td textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+  }
+  
+  /* Style de survol de la ligne */
+  tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  .bordure-max {
+    border-bottom: 20px solid #ddd;
+    font-weight: normal;
+  }
+
+  .valider-button {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100px;
+  }
+
+  .div-valider {
+    text-align: center;
+  }
+
+  .toast-info {
+    background-color: yellow !important; /* Changez cette couleur selon vos préférences */
+    color: black !important; /* Couleur du texte */
+  }
+  
+  /* Styles pour le bouton de fermeture */
+  .toast-info .toast-close-button {
+    color: black !important; /* Couleur du texte du bouton de fermeture */
+  }
+  

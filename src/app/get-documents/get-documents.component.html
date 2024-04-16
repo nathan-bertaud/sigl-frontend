@@ -1,0 +1,103 @@
+<div>
+  <h2>Mes documents</h2>
+  <!-- <table class="table-container">
+    <thead>
+      <tr>
+        <th>Document</th>
+        <th>Icon</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let documentName of documentNames" style="padding: 0px">
+        <td>{{ documentName }}</td>
+        <td>
+          <mat-icon
+            class="notif"
+            aria-hidden="false"
+            aria-label="description icon"
+            fontIcon="description"
+          ></mat-icon>
+        </td>
+        <td><button (click)="deleteDocument(documentName)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table> -->
+  <!-- Define columns -->
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Filter par mot-clé</mat-label>
+      <input
+        matInput
+        (input)="applyFilter($event)"
+        placeholder="Type to filter"
+      />
+    </mat-form-field>
+    <table mat-table [dataSource]="documentSource" class="mat-elevation-z8">
+      <!-- Display 'name' and 'uploadDate' columns -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nom</th>
+        <td mat-cell *matCellDef="let element">{{ element.documentNames }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="uploadDate">
+        <th mat-header-cell *matHeaderCellDef>Date d'Upload</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.documentUploadDates }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="semestre">
+        <th mat-header-cell *matHeaderCellDef>Semestre</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.documentSemester }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Type de document</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.documentType }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Auteur</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.documentAuthor }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="keyword1">
+        <th mat-header-cell *matHeaderCellDef>Mot clé</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.documentKeyword1 }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="suppression">
+        <th mat-header-cell *matHeaderCellDef>Suppression</th>
+        <td mat-cell *matCellDef="let element">
+          <!-- Add mat-icon button (adjust the icon and functionality as needed) -->
+          <button mat-icon-button (click)="onDeleteClick(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="download">
+        <th mat-header-cell *matHeaderCellDef>Téléchargement</th>
+        <td mat-cell *matCellDef="let element">
+          <!-- Add mat-icon button (adjust the icon and functionality as needed) -->
+          <button
+            mat-icon-button
+            class="custom-download-button"
+            (click)="onDownloadClick(element.documentNames)"
+          >
+            <mat-icon>get_app</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <!-- Header and rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

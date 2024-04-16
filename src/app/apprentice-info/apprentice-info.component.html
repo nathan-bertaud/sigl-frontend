@@ -1,0 +1,53 @@
+<ng-container *ngIf="loading">
+  <div class="center">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-container>
+<div *ngIf="!loading">
+  <div>
+    <h2>Apprentice List</h2>
+    <mat-form-field>
+      <mat-label>Selectionner un apprenti</mat-label>
+      <mat-select *ngIf="apprenticeList" [(value)]="selectedApprentice">
+        <mat-option
+          *ngFor="let apprentice of apprenticeList"
+          [value]="apprentice"
+        >
+          {{ apprentice?.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <ng-container *ngIf="selectedApprentice">
+    <div *ngIf="selectedApprentice">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Détails de l'apprenti</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="container">
+            <mat-label><strong>Name:</strong></mat-label>
+            <mat-chip
+              >{{ selectedApprentice.firstName }}
+              {{ selectedApprentice.name }}</mat-chip
+            >
+          </div>
+          <div class="container">
+            <mat-label><strong>Email:</strong></mat-label>
+            <mat-chip>{{ selectedApprentice.email }}</mat-chip>
+          </div>
+          <div class="container">
+            <mat-label><strong>Birth Date:</strong></mat-label>
+            <mat-chip>{{
+              selectedApprentice.birthDate | date : "dd/MM/yyyy"
+            }}</mat-chip>
+          </div>
+          <div class="container">
+            <mat-label><strong>Current Year:</strong></mat-label>
+            <mat-chip>{{ selectedApprentice.currentYear }}</mat-chip>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

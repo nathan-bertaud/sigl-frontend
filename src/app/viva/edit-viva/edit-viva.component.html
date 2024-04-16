@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Modification d'une soutenance</h1>
+<div mat-dialog-content class="wide-dialog">
+  <form>
+    <div class="form-group">
+      <label for="title">Titre:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="title" required />
+
+      <label for="startDate">Date début:</label>
+      <input type="datetime-local" id="startDate" name="startDate" [(ngModel)]="startDate" required />
+
+      <label for="endDate">Date fin:</label>
+      <input type="datetime-local" id="endDate" name="endDate" [(ngModel)]="endDate" required />
+
+      <label for="place">Lieu:</label>
+      <input type="text" id="place" name="place" [(ngModel)]="place" required />
+
+      <label for="semestre">Semestre:</label>
+      <select id="semestre" name="semestre" [(ngModel)]="semestre">
+        <option value="S5">S5</option>
+        <option value="S6">S6</option>
+        <option value="S7">S7</option>
+        <option value="S8">S8</option>
+        <option value="S9">S9</option>
+        <option value="S10">S10</option>
+      </select>
+      <label for="apprenti">Apprenti:</label>
+      <mat-form-field class="search-field">
+        <input
+          type="text"
+          placeholder="Rechercher"
+          matInput
+          [formControl]="controlApprentice"
+          [matAutocomplete]="autoApprentice"
+        />
+        <mat-autocomplete #autoApprentice="matAutocomplete" (optionSelected)="onApprenticeSelected($event)" [displayWith]="displayApprentice">
+          <mat-option
+            *ngFor="let apprentice of filteredApprentice | async"
+            [value]="apprentice"
+          >
+          {{ apprentice.name }} {{apprentice.firstName}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button (click)="onConfirmClick()" cdkFocusInitial>Confirmer</button>
+</div>
+

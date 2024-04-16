@@ -1,0 +1,214 @@
+<!-- Assurez-vous d'avoir importé les modules nécessaires dans votre module Angular -->
+<!-- Exemple : import { MatSelectModule, MatInputModule, MatButtonModule, MatFormFieldModule } from '@angular/material'; -->
+
+<div class="container">
+  <h2>Informations utilisateur</h2>
+  <form (ngSubmit)="submitForm()" #userForm="ngForm">
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Rôle:</mat-label>
+          <mat-select
+            name="selectedRole"
+            [(ngModel)]="formData.selectedRole"
+            required
+          >
+            <mat-option value="apprenti">Apprenti</mat-option>
+            <mat-option value="maitre">Maître d'apprentissage</mat-option>
+            <mat-option value="tuteur">Tuteur pédagogique</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="firstName"
+            [(ngModel)]="formData.firstName"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="lastName"
+            [(ngModel)]="formData.lastName"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row" *ngIf="formData.selectedRole === 'apprenti'">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Année d'étude:</mat-label>
+          <mat-select name="studyYear" [(ngModel)]="formData.studyYear">
+            <mat-option value="3">E3a</mat-option>
+            <mat-option value="4">E4a</mat-option>
+            <mat-option value="5">E5a</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div
+        *ngIf="formData.studyYear === 4 || formData.studyYear === 5"
+        class="form-column"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Option majeure:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="majorOption"
+            [(ngModel)]="formData.majorOption"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div *ngIf="formData.studyYear === 5" class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Option mineure:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="minorOption"
+            [(ngModel)]="formData.minorOption"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row" *ngIf="formData.selectedRole === 'maitre'">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Entreprise:</mat-label>
+          <input
+            matInput
+            type="text"
+            name="enterprise"
+            [(ngModel)]="formData.enterprise"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Spécialisation:</mat-label>
+          <mat-select
+            name="specialization"
+            [(ngModel)]="formData.specialization"
+          >
+            <mat-option value="informatique">Informatique</mat-option>
+            <mat-option value="electronique">Electronique</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row" *ngIf="formData.selectedRole === 'tuteur'">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Spécialisation:</mat-label>
+          <mat-select
+            name="specialization"
+            [(ngModel)]="formData.specialization"
+          >
+            <mat-option value="informatique">Informatique</mat-option>
+            <mat-option value="electronique">Electronique</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row" *ngIf="formData.selectedRole === 'apprenti'">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Maître d'apprentissage:</mat-label>
+          <mat-select name="apprenticeMentor" [(ngModel)]="selectedMentor">
+            <mat-option
+              id="schoolTeam"
+              *ngFor="let mentor of apprenticeMentors"
+              [value]="mentor"
+            >
+              {{ mentor.company }} - {{ mentor.name }} -
+              {{ mentor.firstName }} - {{ mentor.email }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Tuteur pédagogique:</mat-label>
+          <mat-select name="educationalTutors" [(ngModel)]="selectedTutor">
+            <mat-option
+              id="schoolTeam"
+              *ngFor="let educational of educationalTutors"
+              [value]="educational"
+            >
+              {{ educational.name }} - {{ educational.firstName }} -
+              {{ educational.email }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Date de naissance:</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            name="birthdate"
+            [max]="maxDate"
+            [min]="minDate"
+            [(ngModel)]="formData.birthdate"
+            required
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Email:</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            [(ngModel)]="formData.email"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Password:</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            [(ngModel)]="formData.password"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

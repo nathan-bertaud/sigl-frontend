@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Années d'ingénieur</title>
+    <style>
+      .liste-promotions {
+        padding-top: 6%;
+        padding-left: 50%;
+        text-align: center;
+        width: fit-content;
+        height: fit-content;
+      }
+      .year-link {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #000842;
+        text-decoration: none;
+      }
+
+      .year-link:hover {
+        text-decoration: underline;
+        color: rgba(76, 98, 255, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Liste des promotions</h2>
+    <div class="liste-promotions">
+      <a routerLink="/afficher-etudiants/E3A" class="year-link">E3A</a>
+      <a routerLink="/afficher-etudiants/E4A" class="year-link">E4A</a>
+      <a routerLink="/afficher-etudiants/E5A" class="year-link">E5A</a>
+    </div>
+  </body>
+</html>

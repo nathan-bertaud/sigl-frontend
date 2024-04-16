@@ -1,0 +1,43 @@
+/* Ajoutez ces styles dans votre fichier CSS global ou dans le fichier du composant Angular */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.form-column {
+  flex: 1;
+  margin-right: 15px;
+}
+
+/* Style spécifique pour les champs de formulaire Angular Material */
+/* Ajoutez ces styles dans votre fichier CSS global ou dans le fichier du composant Angular */
+
+/* Style pour le conteneur de la liste déroulante */
+mat-form-field {
+  width: 100%;
+}
+
+
+/* Style pour la liste déroulante elle-même */
+mat-select {
+  border-radius: 20px; /* Coins arrondis */
+}
+
+/* Style pour les options de la liste déroulante */
+mat-option {
+  padding: 8px 16px; /* Espacement interne */
+  cursor: pointer;
+}
+#schoolTeam
+{
+  padding: 11px 16px;
+  border-style: inset;
+  border-color: black;
+}

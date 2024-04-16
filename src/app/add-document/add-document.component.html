@@ -1,0 +1,106 @@
+<!-- app.component.html -->
+
+<mat-card class="upload-card">
+  <mat-card-header>
+    <mat-card-title>Import de document</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="file-upload-container">
+      <input
+        #fileInput
+        ngx-mat-file-input
+        [hidden]="true"
+        type="file"
+        id="fileInput"
+        accept=".pdf"
+        (change)="onFileSelected($event)"
+      />
+      <button
+        (click)="fileInput.click()"
+        mat-raised-button
+        class="upload-button"
+      >
+        Déposer votre fichier ici ou Sélectionner un fichier
+      </button>
+      <div *ngIf="selectedFile" class="selected-file-info">
+        {{ selectedFile.name }}
+      </div>
+    </div>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Commentaire :</mat-label>
+      <input matInput [(ngModel)]="comment" id="comment" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Statut :</mat-label>
+      <mat-select [(ngModel)]="status" id="status">
+        <mat-option value="brouillon">Brouillon</mat-option>
+        <mat-option value="valide">Validé</mat-option>
+        <mat-option value="refuse">Refusé</mat-option>
+        <mat-option value="depose">Déposé</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Sélectionnez un document :</mat-label>
+      <mat-select
+        [(ngModel)]="selectedDocument"
+        (selectionChange)="onDocumentChange()"
+        id="documentList"
+      >
+        <mat-option value="Document1">Fiche de Synthèse</mat-option>
+        <mat-option value="Document2">Rapport</mat-option>
+        <mat-option value="Document3">Plan de Rapport</mat-option>
+        <mat-option value="Document4">Support</mat-option>
+        <mat-option value="Document5">Autre</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Condition pour afficher la section du choix uniquement si le document est "Fiche de Synthèse" -->
+    <div *ngIf="selectedDocument">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Sélectionnez un choix :</mat-label>
+        <mat-select
+          [(ngModel)]="selectedChoice"
+          id="choiceList"
+          class="form-select"
+        >
+          <mat-option *ngFor="let choice of choices" [value]="choice">
+            {{ choice }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Répétez ce bloc pour les mots-clés -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Mot-clé 1 :</mat-label>
+      <input matInput [(ngModel)]="keyword1" id="keyword1" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Mot-clé 2 :</mat-label>
+      <input matInput [(ngModel)]="keyword2" id="keyword2" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Mot-clé 3 :</mat-label>
+      <input matInput [(ngModel)]="keyword3" id="keyword3" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Mot-clé 4 :</mat-label>
+      <input matInput [(ngModel)]="keyword4" id="keyword4" />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="uploadDocument()"
+      class="upload-button"
+    >
+      Upload le document
+    </button>
+  </mat-card-content>
+</mat-card>

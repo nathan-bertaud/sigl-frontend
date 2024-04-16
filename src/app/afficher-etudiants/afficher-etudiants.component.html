@@ -1,0 +1,30 @@
+<!-- afficher-promotions.component.html -->
+
+<div>
+    <h2>Affichage des promotions</h2>
+    <p>Vous visualisez les informations pour la promotion {{ promotion }}</p>
+    <button (click)="onValiderClick()">Valider</button>
+  
+    <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Tuteur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let etudiant of etudiants">
+            <td>{{ etudiant.name }}</td>
+            <td>{{ etudiant.firstName }}</td>
+            <td>
+              <select [(ngModel)]="etudiant.educationalTutor.email" (change)="onTutorChange(etudiant)">
+                <option *ngFor="let tutor of educationalTutors" [value]="tutor.email">
+                  {{ tutor.email }}
+                </option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

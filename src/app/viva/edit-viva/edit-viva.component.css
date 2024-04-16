@@ -1,0 +1,45 @@
+/* Ajoutez ces styles dans votre fichier CSS correspondant */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .search-field {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Ajoutez ces styles si vous souhaitez ajuster l'apparence de l'autocomplete */
+  mat-option {
+    white-space: nowrap;
+  }
+  
+  /* Ajoutez ces styles pour ajuster le positionnement de l'autocomplete */
+  ::ng-deep .mat-autocomplete-panel {
+    margin-top: 0;
+  }
+  
+  /* Ajoutez ces styles pour ajuster le positionnement des options de l'autocomplete */
+  ::ng-deep .mat-option {
+    min-width: 200px;
+  }

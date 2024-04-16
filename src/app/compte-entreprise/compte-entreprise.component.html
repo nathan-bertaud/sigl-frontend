@@ -1,0 +1,21 @@
+<div class="change-password-container">
+    <h2>Creation d'un compte partenaire</h2>
+
+    <p>Saisissez les informations de l'entreprise</p>
+
+    <form [formGroup]="formCreationCompteEntreprise" (ngSubmit)="creationCompteEntreprise()">
+        <div class="form-group">
+            <label>Nom de l'entreprise</label>
+            <input formControlName="companyName" id="nomEntreprise" placeholder="Nom de l'entreprise" required>
+            <label> Email</label>
+            <input formControlName="email" type="email" id="email" placeholder="Email" required>
+            <label> Mot de passe</label>
+            <input formControlName="newPassword" type="password" id="newPassword" placeholder="Nouveau mot de passe"
+                required>
+            <label> Confirmer le mot de passe</label>
+            <input formControlName="confirmNewPassword" type="password" id="confirmNewPassword"
+                placeholder="Confirmer mot de passe" required>
+        </div>
+        <button class="modern-login-button" type="submit">Créer le compte</button>
+    </form>
+</div>

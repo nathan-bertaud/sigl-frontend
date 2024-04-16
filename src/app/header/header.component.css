@@ -1,0 +1,105 @@
+.eseoimg {
+  max-height: 40px;
+  width: auto;
+  margin-left: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.name {
+  height: 40px;
+  margin-left: 5px;
+}
+
+.container {
+  background: linear-gradient(
+    54deg,
+    rgba(150, 32, 81, 1) 4%,
+    rgba(9, 9, 121, 1) 14%,
+    rgba(76, 98, 255, 1) 41%
+  );
+
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+span {
+  color: white;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 45px;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
+
+.info-container:hover {
+  color: black;
+  filter: drop-shadow(2px 4px 10px black);
+}
+
+.right-container {
+  display: flex;
+  margin-right: 45px;
+  align-items: center;
+}
+
+mat-icon {
+  color: white;
+  margin-right: 5px;
+}
+
+.full-name {
+  font-size: 20px;
+  color: inherit;
+}
+
+.function {
+  font-size: 15px;
+  font-weight: 200;
+  color: inherit;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 45px;
+  align-items: center;
+  color: white;
+}
+
+.logout-container:hover {
+  color: black;
+  cursor: pointer;
+  filter: drop-shadow(2px 4px 10px black);
+}
+
+.notif:hover {
+  color: black;
+  filter: drop-shadow(2px 4px 10px black);
+}
+
+.signout {
+  color: inherit;
+}
+
+/* CSS */
+.notif {
+  transition: transform 0.3s ease;
+}
+
+.notif-count {
+  background: red;
+  color: white;
+  border-radius: 30px;
+  position: absolute;
+  top: 14px;
+  width: 19px;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 24px;
+}

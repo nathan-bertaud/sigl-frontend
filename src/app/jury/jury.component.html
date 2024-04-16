@@ -1,0 +1,66 @@
+<div class="jury-container">
+  <h1>Jury</h1>
+  <div class="search-section">
+    <h3>Tuteur académique</h3>
+    <mat-form-field class="search-field">
+      <input
+        type="text"
+        placeholder="Rechercher"
+        matInput
+        [formControl]="controlTutor"
+        [matAutocomplete]="autoTutor"
+      />
+      <mat-autocomplete #autoTutor="matAutocomplete">
+        <mat-option
+          *ngFor="let tutor of filteredTutors | async"
+          [value]="tutor.name + ' ' + tutor.firstName"
+        >
+          {{ tutor.name }} {{tutor.firstName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="ajouterEducationalTutor()"
+    >
+      Ajouter
+    </button>
+
+    <h3>Maitre apprentissage</h3>
+    <mat-form-field class="search-field">
+      <input
+        type="text"
+        placeholder="Rechercher"
+        matInput
+        [formControl]="controlMentor"
+        [matAutocomplete]="autoMentor"
+      />
+      <mat-autocomplete #autoMentor="matAutocomplete">
+        <mat-option
+          *ngFor="let mentor of filteredMentor | async"
+          [value]="mentor.name + ' ' + mentor.firstName"
+        >
+        {{ mentor.name }} {{mentor.firstName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="ajouterMentor()">
+      Ajouter
+    </button>
+  </div>
+  <div class="juries-section">
+    <h3>Jury</h3>
+    <ul>
+      <li *ngFor="let jury of juries; let i = index">
+        {{ jury.name+' '+ jury.firstName}}
+        <button mat-icon-button (click)="removeJury(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+
+  <button class="modern-login-button" type="submit" (click)="ajouterJury()">Valider</button>
+</div>

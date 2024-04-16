@@ -1,0 +1,124 @@
+<h1>Notifications</h1>
+<ng-container *ngIf="loading">
+  <div class="center">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-container>
+
+<div *ngIf="hasRole('ROLE_ADMIN') && !loading">
+  <h2>Notifier tous les apprentis</h2>
+  <form [formGroup]="formNotification" (ngSubmit)="NotificationAllApprentice()">
+    <mat-form-field appearance="fill">
+      <mat-label>Contenu</mat-label>
+      <input
+        matInput
+        formControlName="content"
+        placeholder="Entrez le contenu de la notification"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Auteur</mat-label>
+      <input
+        matInput
+        formControlName="author"
+        placeholder="Entrez l'auteur de votre commentaire"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        type="date"
+        formControlName="date"
+        placeholder="Entrez la date d'une notification"
+        required
+      />
+    </mat-form-field>
+    <div class="bouton-connexion">
+      <button mat-raised-button type="submit" class="modern-login-button">
+        Notifier
+      </button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="hasRole('ROLE_MENTOR') && !loading">
+  <form [formGroup]="formNotification" (ngSubmit)="Notification()">
+    <mat-form-field appearance="fill">
+      <mat-label>Contenu</mat-label>
+      <input
+        matInput
+        formControlName="content"
+        placeholder="Entrez le contenu de la notification"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Auteur</mat-label>
+      <input
+        matInput
+        formControlName="author"
+        placeholder="Entrez l'auteur de votre commentaire"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        type="date"
+        formControlName="date"
+        placeholder="Entrez la date d'une notification"
+        required
+      />
+    </mat-form-field>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Selectionner un apprenti</mat-label>
+        <mat-select *ngIf="apprenticeList" [(value)]="selectedApprentice">
+          <mat-option
+            *ngFor="let apprentice of apprenticeList"
+            [value]="apprentice"
+          >
+            {{ apprentice?.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="bouton-connexion">
+      <button mat-raised-button type="submit" class="modern-login-button">
+        Notifier
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="notification-page">
+  <div class="notification-list">
+    <ng-container *ngFor="let notification of notifications">
+      <div class="notification-item">
+        <div class="notification-content">{{ notification.content }}</div>
+        <div class="notification-meta">
+          <div class="notification-author">
+            Auteur : {{ notification.author }}
+          </div>
+          <div class="notification-date">
+            Date : {{ notification.date | date : " dd/MM/yyyy" }}
+          </div>
+        </div>
+        <button (click)="deleteNotification(notification)">SUPPRIMER</button>
+      </div>
+    </ng-container>
+  </div>
+  <div class="empty-notification" *ngIf="notifications.length === 0">
+    Aucune notification à afficher.
+  </div>
+</div>

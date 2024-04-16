@@ -1,0 +1,297 @@
+<div>
+  <h2>Grille d'évaluation semestrielle</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="bordure-max">Compétences</th>
+        <th class="bordure-max">
+          Exemples de situations professionnelles caractéristiques
+        </th>
+        <th class="bordure-max">SEMESTRE</th>
+        <th class="bordure-max">Non acquis</th>
+        <th class="bordure-max">En cours d'acquisition</th>
+        <th class="bordure-max">ACQUIS</th>
+        <th class="bordure-max">Non abordé en entreprise</th>
+        <th class="bordure-max">
+          COMMENTAIRE (à renseigner pour chaque compétence)
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>Diagnostiquer</h2></td>
+        <td class="bordure-max" rowspan="7">
+          <p>
+            - Diagnostiquer un système numérique existant en vue de le faire
+            évoluer
+          </p>
+          <p>
+            - Diagnostiquer un système numérique pour identifier une anomalie
+          </p>
+          <p>
+            - Diagnostiquer un système numérique en vue de corriger / pallier
+            une anomalie
+          </p>
+          <p>
+            - Diagnostiquer un système numérique en vue de le maintenir,
+            durablement, en état de fonctionnement
+          </p>
+        </td>
+      </tr>
+
+      <tr *ngFor="let diag of diagnosisValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'diagnostiquerS' + (i + 5)"
+            [(ngModel)]="diag.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="diag.comment"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>Concevoir</h2></td>
+        <td rowspan="7" class="bordure-max">
+          <p>- Analyser et construire un cahier des charges</p>
+          <p>
+            - Concevoir l'architecture fonctionnelle et/ou structurelle d'un
+            système numérique répondant au cahier des charges, en prenant en
+            compte des contraintes de développement durable
+          </p>
+          <p>
+            - Concevoir un système numérique en choisissant des technologies
+            adaptées au besoin défini, compte-tenu de l'état de l'art, des
+            moyens de l'entreprise et dans un souci de performance / efficacité,
+            en prenant en compte des contraintes de développement durable
+          </p>
+          <p>
+            - Concevoir des systèmes numériques à travers de la modélisation et
+            de la simulation
+          </p>
+        </td>
+      </tr>
+
+      <tr *ngFor="let conc of concevoirValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'concevoirS' + (i + 5)"
+            [(ngModel)]="conc.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="conc.comment"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>Produire</h2></td>
+        <td rowspan="7" class="bordure-max">
+          <p>- Produire un prototype de système numérique</p>
+          <p>
+            - Produire un sys.num capable de respecter des contraintes
+            réglementaires, techniques, environnementales et de durée de vie
+          </p>
+        </td>
+      </tr>
+
+      <tr *ngFor="let prod of produireValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'produireS' + (i + 5)"
+            [(ngModel)]="prod.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="prod.comment"></textarea>
+        </td>
+      </tr>
+      <td rowspan="7" class="bordure-max"><h2>Valider</h2></td>
+      <td rowspan="7" class="bordure-max">
+        <p>
+          - Valider le bon fonctionnement d'un système numérique en proposant
+          une démarche visant à identifier l'absence de dysfonctionnement
+        </p>
+        <p>- Valider l'adéquation d'une solution avec le cahier des charges</p>
+      </td>
+      <tr *ngFor="let valid of validerValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'validerS' + (i + 5)"
+            [(ngModel)]="valid.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="valid.comment"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>Piloter</h2></td>
+        <td rowspan="7" class="bordure-max">
+          <p>
+            - Piloter un projet en assurant la projection et le suivi des
+            actions et du budget
+          </p>
+          <p>
+            - Piloter un projet en manageant une équipe projet
+            pluridisciplinaire et internationale, en prenant en compte les
+            aspects techniques, humains et économiques
+          </p>
+        </td>
+      </tr>
+
+      <tr *ngFor="let pilot of piloterValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'piloterS' + (i + 5)"
+            [(ngModel)]="pilot.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="pilot.comment"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>S'adapter</h2></td>
+        <td rowspan="7" class="bordure-max">
+          <p>
+            - S'adapter à de nouvelles méthodes/techniques/technologies
+            identifiées comme pouvant être utiles à concevoir des systèmes
+            numériques
+          </p>
+          <p>
+            - S'adapter à des contraintes organisationnelles, environnementales
+            ou humaines
+          </p>
+          <p>
+            - Anticiper les innovations et les évolutions, assurer une veille
+          </p>
+          <p>
+            - Identifier la nécessité de se former sur de nouvelles méthodes,
+            techniques ou technologies
+          </p>
+        </td>
+      </tr>
+
+      <tr *ngFor="let adapt of adapterValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'adapterS' + (i + 5)"
+            [(ngModel)]="adapt.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="adapt.comment"></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>Communiquer</h2></td>
+        <td rowspan="7" class="bordure-max">
+          <p>
+            - Communiquer avec des spécialistes comme avec des non-spécialistes
+            en français et en anglais
+          </p>
+          <p>- Animer et convaincre</p>
+        </td>
+
+        "
+      </tr>
+
+      <tr *ngFor="let comm of communiquerValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1, 2, 3, 4]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+          <input
+            type="radio"
+            [name]="'communiquerS' + (i + 5)"
+            [(ngModel)]="comm.value"
+            [value]="value"
+          />
+        </td>
+        <td [class.bordure-max]="i + 5 === 10">
+          <textarea [(ngModel)]="comm.comment"></textarea>
+        </td>
+      </tr>
+
+      <!-- Ajoutez d'autres lignes au besoin -->
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Maitre d'aprentissage</th>
+        <th>Tuteur pédagogique</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="7" class="bordure-max"><h2>Commentaire général</h2></td>
+      </tr>
+
+      <tr *ngFor="let comm of communicationValues; let i = index">
+        <td [class.bordure-max]="i + 5 === 10">S{{ i + 5 }}</td>
+        <td
+          *ngFor="let value of [1]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+        <textarea [(ngModel)]="comm.comment1"></textarea>
+      </td>
+      <td
+          *ngFor="let value of [1]"
+          [class.bordure-max]="i + 5 === 10"
+        >
+        <textarea [(ngModel)]="comm.comment2"></textarea>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="div-valider" *ngIf="!roles.includes('ROLE_APPRENTI')">
+  <button class="valider-button" (click)="enregistrerGrille()">Valider</button>
+</div>

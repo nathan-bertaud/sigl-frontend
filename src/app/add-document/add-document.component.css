@@ -1,0 +1,105 @@
+/* app.component.css */
+
+.upload-card {
+  width: 100%;
+  max-width: 960px;
+  margin: 20px auto;
+  border: 1px solid #e0e0e0;
+}
+
+.upload-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px;
+}
+
+.mat-card-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mat-stroked-button {
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.selected-file-info {
+  font-size: 0.9em;
+  color: #757575;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: calc(100% - 32px);
+  margin: 10px 16px;
+}
+
+mat-form-field {
+  margin-top: 20px;
+}
+
+mat-label {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+input.mat-input-element {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+button.mat-raised-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+button.mat-button {
+  color: #2196f3;
+}
+
+.mat-card-content {
+  padding-bottom: 16px;
+}
+
+/* Style adjustments for buttons */
+button.mat-raised-button:not(:last-child),
+button.mat-button:not(:last-child) {
+  margin-right: 8px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .full-width {
+    width: calc(100% - 32px);
+    margin: 10px 16px;
+  }
+
+  .upload-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toast-info {
+    background-color: yellow !important; /* Changez cette couleur selon vos préférences */
+    color: black !important; /* Couleur du texte */
+  }
+}

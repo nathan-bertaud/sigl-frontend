@@ -1,0 +1,29 @@
+<head>
+    <title>Note</title>
+</head>
+<body>
+    <h1>Résumé d'activités</h1>
+    <form [formGroup]="formulaireAddNote" (ngSubmit)="AddNote()">
+        <label for="existingNotes">Choisir une note existante :</label>
+        <select id="existingNotes" name="existingNotes" (change)="onNoteSelect($event)">
+            <option *ngFor="let note of existingNotes" [value]="note">{{ note.title }}</option>
+          </select>
+        <label for="noteTitle">Titre :</label>
+        <input type="text" id="noteTitle" formControlName="notetitle" 
+        >
+
+        <label for="startDate">Date de début :</label>
+        <input type="date" id="startDate" formControlName="startDate" required>
+
+        <label for="endDate">Date de fin :</label>
+        <input type="date" id="endDate" formControlName="endDate" required>
+
+        <label for="activitySummary">Résumé des activités :</label>
+        <textarea id="activitySummary" formControlName="activitySummary" rows="4" required></textarea>
+
+        <div id="divButton">
+        <button type="submit">Enregistrer</button>
+        </div>
+
+    </form>
+</body>

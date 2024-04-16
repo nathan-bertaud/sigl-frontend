@@ -1,0 +1,137 @@
+/* app.component.css */
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.file-label {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+  background-color: #45a049;
+}
+
+.selected-file-info {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-top: 15px;
+}
+
+.form-label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #2196f3;
+}
+
+.upload-button {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-group-keyword {
+  display: flex;
+  gap: 50px;
+  padding: 25px;
+}
+
+/* Style for the delete button */
+button {
+  padding: 5px 10px;
+  background-color: #dc3545; /* Bootstrap's danger color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c82333; /* Darken the color on hover */
+}
+
+/* Assuming you have a class for the table container */
+.table-container {
+  width: 100%;
+}
+
+/* Set the width of the first row to 80% and remove padding */
+.table-container tbody tr:first-child td {
+  width: 80%;
+  padding: 0; /* Remove padding for the first row */
+}
+
+/* Set the width of the other rows to 10% and add padding */
+.table-container tbody tr:not(:first-child) td {
+  width: 10%;
+  padding: 8px; /* Add padding for other rows */
+}
+
+/* Add black borders to all table cells */
+.table-container tbody tr td {
+  border: 1px solid #000; /* Black border */
+}
+
+/* Adjust the style for the delete button */
+.table-container tbody tr td button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-container tbody tr td button:hover {
+  background-color: #c82333;
+}
+
+/* Adjust the style for the mat-icon */
+.table-container tbody tr td mat-icon {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #2196f3; /* Adjust the color as needed */
+}
+.custom-download-button {
+  background-color: blue; /* Set the background color to blue */
+  color: white; /* Set the text color to white */
+  /* Add any additional styles as needed */
+}
+.custom-download-button:hover {
+  background-color: #23c889; /* Darken the color on hover */
+}
+
+mat-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
